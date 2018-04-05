@@ -6,6 +6,7 @@ use App\Policies\PostPolicy;
 use App\Post;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Laravel\Passport\Passport;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -32,5 +33,6 @@ class AuthServiceProvider extends ServiceProvider
 //            return $user->id == $post->user_id;
 //        });
         Gate::define('update-post', 'PostPolicy@update');
+        Passport::routes();
     }
 }
